@@ -33,5 +33,21 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="10dp"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/databaselist"
+        app:layout_constraintTop_toBottomOf="@id/saveBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Fire Store Database"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updates"
+        app:layout_constraintTop_toBottomOf="@id/databaselist"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

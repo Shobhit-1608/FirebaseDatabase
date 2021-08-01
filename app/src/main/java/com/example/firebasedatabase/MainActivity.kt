@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
             val lastName = inputLastName.text.toString()
             saveFirestore(firstName, lastName)
         }
+        readFirestore()
     }
 
     private fun saveFirestore(firstName: String, lastName: String) {
@@ -37,6 +38,24 @@ class MainActivity : AppCompatActivity() {
             }
 
 
+        readFirestore()
+    }
 
+    fun readFirestore(){
+        val db = FirebaseFirestore.getInstance()
+        db.collection("users")
+            .get()
+            .addOnCompleteListener(){
+
+                val result: StringBuffer = StringBuffer()
+                if(it.isSuccessful){
+                    for(document in it.result !!){
+                        result.append(document.data.getValue("firstName")).append(" ")
+                            .append(document.data.getValue("lastName")).append("\n\n ")
+
+                    }
+                    updates.setText(result)
+                }
+            }
     }
 }
