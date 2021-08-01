@@ -10,44 +10,52 @@
         android:id="@+id/inputFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="10dp"
-        android:hint="Enter your first name"/>
+        android:hint="Enter your first name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/inputLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/inputFirstName"
-        app:layout_constraintEnd_toStartOf="parent"
         android:layout_margin="10dp"
-        android:hint="Enter Last Name"/>
+        android:hint="Enter Last Name"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputFirstName" />
 
     <Button
         android:id="@+id/saveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/inputLastName"
+        android:layout_margin="10dp"
         android:text="Save"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="10dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/inputLastName" />
+
+    <Button
+        android:id="@+id/recycler"
+        android:layout_width="wrap_content"
+        android:text="open recycler view"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputLastName" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/databaselist"
-        app:layout_constraintTop_toBottomOf="@id/saveBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Fire Store Database"/>
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/updates"
-        app:layout_constraintTop_toBottomOf="@id/databaselist"
+        android:text="Fire Store Database"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/saveBtn" />
+
+    <TextView
+        android:id="@+id/updates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/databaselist" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,19 @@
 package com.example.firebasedatabase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -19,6 +24,11 @@ class MainActivity : AppCompatActivity() {
             saveFirestore(firstName, lastName)
         }
         readFirestore()
+
+        recycler.setOnClickListener(){
+            val intent = Intent (this, DatabaseDisplay::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun saveFirestore(firstName: String, lastName: String) {
