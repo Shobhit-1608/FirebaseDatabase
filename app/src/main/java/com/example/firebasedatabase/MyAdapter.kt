@@ -30,7 +30,7 @@ class MyAdapter (private val userList : ArrayList<User>): RecyclerView.Adapter<M
     public class MyViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val firstName: TextView = itemView.findViewById<TextView>(R.id.tvFirstName)
-        val lastName: TextView = itemView.findViewById<TextView>(R.id.tvFirstName)
+        val lastName: TextView = itemView.findViewById<TextView>(R.id.tvLastName)
 
 
     }

@@ -10,7 +10,7 @@ import com.google.firebase.firestore.*
 class DatabaseDisplay : AppCompatActivity() {
 
     lateinit var recyclerView : RecyclerView
-    lateinit var myAdapter: MyAdapter
+   public lateinit var myAdapter: MyAdapter
     lateinit var db: FirebaseFirestore
     lateinit var userArrayList: ArrayList<User>
 
@@ -28,14 +28,17 @@ class DatabaseDisplay : AppCompatActivity() {
         myAdapter = MyAdapter(userArrayList)
         recyclerView.adapter = myAdapter
 
+
         EventChangeListener()
 
     }
 
     private fun EventChangeListener() {
 
+
+
         db = FirebaseFirestore.getInstance()
-        db.collection("user")
+        db.collection("users")
             .addSnapshotListener(object: EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                     if(error != null) {
@@ -47,7 +50,9 @@ class DatabaseDisplay : AppCompatActivity() {
                         if(dc.type == DocumentChange.Type.ADDED)
                         {
                             userArrayList.add(dc.document.toObject(User::class.java))
+                            Log.e(DatabaseDisplay::class.simpleName,dc.document.toString())
                         }
+                        myAdapter.notifyDataSetChanged()
                     }
                 }
 
